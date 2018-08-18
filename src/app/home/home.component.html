@@ -1,5 +1,10 @@
-<h1>Welcome to my website</h1>
+<h1> Hi {{currentUser.firstName}}</h1>
+<p>You're logged in with Angular 6!</p>
+<h3>All registered users: </h3>
 <ul>
-  <li><a href="/login">Login</a></li>
-  <li><a href="/admin">admin</a></li>
+  <li *ngFor="let user of users">
+    {{user.username}} {{user.firstName}} {{user.lastName}}
+    - <a (click)="deleteUser(user.id)" class="text-danger">delete</a>
+  </li>
 </ul>
+<p><a [routerLink]="['/login']">Logout</a></p>
